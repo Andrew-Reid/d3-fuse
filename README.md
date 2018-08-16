@@ -64,5 +64,7 @@ Specifies the area or value for determining node area. Can be provided a number 
 
 Removes the layout data from the nodes array.
 
+### fuse.step() / fuse.suffuse()
 
+Goes through all circles and checks for overlaps based on positions at beginning of step. `fuse()` keeps stepping until no more circles overlap, a single step may or may not result in residual overlap. 
 

@@ -25,15 +25,15 @@ parent: an object containing the parent node of a node that has merged into anot
 children: an array of objects containing the nodes that have been merged into this node
 ```
 
-## d3.fuse(*nodes*)
+### d3.fuse(*nodes*)
 
 Returns a fuse layout. Can be optionally supplied with an array of nodes.
 
-## fuse.nodes(*nodes*)
+### fuse.nodes(*nodes*)
 
 If `nodes` is provided will set the nodes for the fuse layout and combine nodes that overlap. If `nodes` is not specified, returns the nodes of the layout.
 
-## fuse.padding(*padding*)
+### fuse.padding(*padding*)
 
 If `padding` is provided applies a padding value to all overlap calculations. The padding value is added to the combined distance of the radii of the two nodes. This distance is compared against the actual distance between two nodes' centers to determine overlap (negative values will allow circles to overlap by the specified padding value without merging, positive values will merge circles that do not touch).
 

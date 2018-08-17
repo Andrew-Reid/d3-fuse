@@ -1,8 +1,14 @@
 # d3-fuse
 
-D3-fuse clusters circles by overlap. Overlap can be determined merely on radius or an additional padding specifier can be added. D3-fuse uses D3-quadtree in order to search for overlapping nodes, this is the only D3 dependency.
+D3-fuse clusters circles by overlap. Overlap can be determined merely on radius or an additional padding specifier can be added. D3-fuse uses D3-quadtree in order to search for overlapping nodes, this is the only D3 dependency. The clustering pattern is not based on the number of circles within a gridded space but on overlap of nodes which allows for a less square appearance of clustered nodes.
 
 *This is a related project of my initial [cluster attempt](https://github.com/Andrew-Reid/d3-marker-cluster) which uses a modified force layout (I intend to continue that as a force for force layouts).* 
+
+
+
+
+
+
 
 ### d3.fuse(*nodes*)
 

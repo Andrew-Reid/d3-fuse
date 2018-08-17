@@ -4,7 +4,7 @@ D3-fuse clusters circles by overlap. Overlap can be determined merely on radius 
 
 *This is a related project of my initial [cluster attempt](https://github.com/Andrew-Reid/d3-marker-cluster) which uses a modified force layout (I intend to continue that as a force for force layouts).* 
 
-
+<a href="https://bl.ocks.org/Andrew-Reid/6edf5fea96a6987ee53b8683c42aa50b"><img src="demo1.png"></img></a>
 
 
 

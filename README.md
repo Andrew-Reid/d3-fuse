@@ -39,11 +39,11 @@ When node's overlap, the larger node "swallows" the smaller one. This means a fe
 
 ### fuse.nodes(*nodes*)
 
-If `nodes` is provided will set the nodes for the fuse layout. If `nodes` is not specified, returns the nodes of the layout.
+If `nodes` is provided will set the nodes for the fuse layout, returning the fuse layout. If `nodes` is not specified, returns the nodes of the layout.
 
 ### fuse.padding(*padding*)
 
-If `padding` is provided applies a padding value to all overlap calculations. The padding value is added to the combined distance of the radii of the two nodes. This distance is compared against the actual distance between two nodes' centers to determine overlap (negative values will allow circles to overlap by the specified padding value without merging, positive values will merge circles that do not touch).
+If `padding` is provided applies a padding value to all overlap calculations and returns the fuse layout. The padding value is added to the combined distance of the radii of the two nodes. This distance is compared against the actual distance between two nodes' centers to determine overlap (negative values will allow circles to overlap by the specified padding value without merging, positive values will merge circles that do not touch).
 
 ### fuse.x(*x*)
 
@@ -70,7 +70,7 @@ Specifies the area or value for determining node area. Can be provided a number 
 
 Removes the layout data from the nodes array.
 
-### fuse.step() / fuse.suffuse()
+### fuse.step()
 
 Goes through all circles and checks for overlaps based on positions at beginning of step. `fuse()` keeps stepping until no more circles overlap, a single step may or may not result in residual overlap. 
 

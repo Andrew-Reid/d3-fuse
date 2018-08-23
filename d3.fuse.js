@@ -1,17 +1,17 @@
-/*v0.0.0*/
+/*v0.0.1*/
 (function (global, factory) {
-typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-quadtree')) :
-typeof define === 'function' && define.amd ? define(['exports', 'd3-quadtree'], factory) :
-(factory((global.d3 = global.d3 || {}),global.d3)); }(this, (function (exports,d3Quadtree) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-quadtree')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'd3-quadtree'], factory) :
+	(factory((global.d3 = global.d3 || {}),global.d3)); }(this, (function (exports,d3Quadtree) { 'use strict';
 	
 var c = function(f) { return (typeof f == "function") ? f : (function() { return f; }) }
 	
 var fuse = function(n) {
   var nodes = n || [], padding = 0, pi = Math.PI;
   var x = function(d) { return d.x; }, 
-  y = function(d) { return d.y; }, 
-  r = function(d) { return d.r; },
-  a = function(d) { return r(d) * r(d) * Math.PI; }
+    y = function(d) { return d.y; }, 
+	r = function(d) { return d.r; },
+	a = function(d) { return r(d) * r(d) * Math.PI; }
 
   function fuse() { initializeNodes(), step(); return nodes; }
 
@@ -21,34 +21,34 @@ var fuse = function(n) {
     var count = 0;  // Number of merges for a given cycle
     for (var i = 0; i < nodes.length; ++i) n0 = nodes[i], tree.visit(apply);
 	
-    function apply(qn, x0, y0, x1, y1) {
+	function apply(qn, x0, y0, x1, y1) {
       var n1 = qn.data;
       var r = qn.r + n0.layout.r;
       if (n1 && n1.index > n0.index && n1.layout.a && n0.layout.a) {    
-        var x = n0.layout.x - n1.layout.x || 1e-6;
-        var y = n0.layout.y - n1.layout.y || 1e-6;
-        var l = Math.sqrt(x * x + y * y);
-        if (l < r + padding) {	 // If merge required
-          l = (r - l) / l;
-            count++;
-            // Merge logic				
-	    var a,b;
-            if(n1.layout.a > n0.layout.a) a = n1, b = n0;       // Node1 absorbs Node0
-            else a = n0, b = n1;                                // Node0 absorbs Node1
-            // Merge nodes:
-            a.layout.x = (a.layout.x * a.layout.a + b.layout.x * b.layout.a)/(a.layout.a + b.layout.a);
-            a.layout.y = (a.layout.y * a.layout.a + b.layout.y * b.layout.a)/(b.layout.a + a.layout.a);
-            a.layout.count += b.layout.count;
-            a.layout.a += b.layout.a;
-            a.layout.r = Math.sqrt(a.layout.a/pi);
-            b.layout.r = b.layout.a = 0;
-            a.layout.children.push(b), b.layout.parent = a;
+          var x = n0.layout.x - n1.layout.x || 1e-6;
+          var y = n0.layout.y - n1.layout.y || 1e-6;
+          var l = Math.sqrt(x * x + y * y);
+          if (l < r + padding) {							// If merge required
+            l = (r - l) / l;
+			count++;
+			// Merge logic				
+			var a,b;
+			if(n1.layout.a > n0.layout.a) a = n1, b = n0;  	// Node1 absorbs Node0
+			else a = n0, b = n1; 			 				// Node0 absorbs Node1
+			// Merge nodes:
+			a.layout.x = (a.layout.x * a.layout.a + b.layout.x * b.layout.a)/(a.layout.a + b.layout.a);
+			a.layout.y = (a.layout.y * a.layout.a + b.layout.y * b.layout.a)/(b.layout.a + a.layout.a);
+			a.layout.count += b.layout.count;
+			a.layout.a += b.layout.a;
+			a.layout.r = Math.sqrt(a.layout.a/pi);
+			b.layout.r = b.layout.a = 0;
+			a.layout.children.push(b), b.layout.parent = a;
         }
         return;
       }
      return x0 > n0.layout.x + r || x1 < n0.layout.x - r || y0 > n0.layout.y + r || y1 < n0.layout.y - r;
     }
-    return count;
+	return count;
   }
 
   function prepare(n) {
@@ -77,6 +77,7 @@ var fuse = function(n) {
   fuse.y = function(_) { y = c(_); return fuse;  } 
   fuse.defuse = function() { nodes.forEach(function(n) { delete n.layout; }); return fuse; }  
   fuse.step = function() { initializeNodes(); cluster(); return fuse; }
+  fuse.fuse = function() { fuse(); return fuse; }
   return fuse;
 };
 

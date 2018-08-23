@@ -8,6 +8,9 @@ D3-fuse clusters circles by overlap. Overlap can be determined merely on radius 
 
 
 
+<a href="https://bl.ocks.org/Andrew-Reid/34d41d92aa3c2ff61cce4ae0bd23106a"><img src="demo2.png"></img></a>
+
+
 
 
 ### d3.fuse(*nodes*)
@@ -73,4 +76,8 @@ Removes the layout data from the nodes array.
 ### fuse.step()
 
 Goes through all circles and checks for overlaps based on positions at beginning of step. `fuse()` keeps stepping until no more circles overlap, a single step may or may not result in residual overlap. 
+
+### fuse.fuse()
+
+Step until no circles overlap. Same as `fuse()` but returns the layout rather than the nodes.
 

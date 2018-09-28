@@ -1,4 +1,4 @@
-/*v0.0.1*/
+/*v0.0.2*/
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-quadtree')) :
 	typeof define === 'function' && define.amd ? define(['exports', 'd3-quadtree'], factory) :
@@ -71,8 +71,8 @@ var fuse = function(n) {
   
   fuse.nodes = function(_) { return arguments.length ? (nodes = _, fuse) : nodes; }
   fuse.padding = function(_) { return arguments.length ? (padding = _, fuse) : padding; }
-  fuse.radius = function(_) { return arguments.length ? (radius = c(_), fuse) : radius; }
-  fuse.area = function(_) { return arguments.length ? (area = c(_), fuse) : area;  }
+  fuse.radius = function(_) { return arguments.length ? (r = c(_), fuse) : r; }
+  fuse.area = function(_) { return arguments.length ? (a = c(_), fuse) : a;  }
   fuse.x = function(_) { x = c(_); return fuse;  }
   fuse.y = function(_) { y = c(_); return fuse;  } 
   fuse.defuse = function() { nodes.forEach(function(n) { delete n.layout; }); return fuse; }  

@@ -13,6 +13,9 @@ D3-fuse clusters circles by overlap. Overlap can be determined merely on radius 
 <a href="https://bl.ocks.org/Andrew-Reid/0d7b626f4b83429fff94e79e3884ab60"><img src="Fuse.png"></img></a>
 
 
+<a href="https://bl.ocks.org/Andrew-Reid/cd6c23214147ddea4336b1f50238e3d6"><img src="demo3.png"></img></a>
+
+
 ### d3.fuse(*nodes*)
 
 Returns a fuse layout. Can be optionally supplied with an array of nodes. 

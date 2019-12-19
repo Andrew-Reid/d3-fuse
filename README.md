@@ -36,7 +36,7 @@ parent: an object containing the node that swallowed this node
 children: an array containing the nodes that this node swalloed.
 ```
 
-When node's overlap, the larger node "swallows" the smaller one. This means a few things:
+When node's overlap, the larger node "swallows" the smaller one. This means a few things for the properties of the node's layout property:
 1. The large one's count is increased by an amount equal to the count of the smaller node.
 2. The larger node is assigned as the parent property of the smaller one.
 3. The smaller node is added to the children property of the larger one.

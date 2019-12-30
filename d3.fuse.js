@@ -1,4 +1,4 @@
-/*v0.0.2*/
+/*v0.0.3*/
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-quadtree')) :
 	typeof define === 'function' && define.amd ? define(['exports', 'd3-quadtree'], factory) :
@@ -9,9 +9,9 @@ var c = function(f) { return (typeof f == "function") ? f : (function() { return
 var fuse = function(n) {
   var nodes = n || [], padding = 0, pi = Math.PI;
   var x = function(d) { return d.x; }, 
-    y = function(d) { return d.y; }, 
-	r = function(d) { return d.r; },
-	a = function(d) { return r(d) * r(d) * Math.PI; }
+      y = function(d) { return d.y; }, 
+      r = function(d) { return d.r; },
+      a = function(d) { return r(d) * r(d) * Math.PI; }
 
   function fuse() { initializeNodes(), step(); return nodes; }
 
@@ -25,11 +25,10 @@ var fuse = function(n) {
       var n1 = qn.data;
       var r = qn.r + n0.layout.r;
       if (n1 && n1.index > n0.index && n1.layout.a && n0.layout.a) {    
-          var x = n0.layout.x - n1.layout.x || 1e-6;
-          var y = n0.layout.y - n1.layout.y || 1e-6;
+          var x = n0.layout.x - n1.layout.x;
+          var y = n0.layout.y - n1.layout.y;
           var l = Math.sqrt(x * x + y * y);
           if (l < r + padding) {	// If merge required
-            l = (r - l) / l;
 			count++;
 			// Merge logic				
 			var a,b;
@@ -65,7 +64,7 @@ var fuse = function(n) {
   function initializeNodes() {
     for (var i = 0, n = nodes.length, node; i < n; ++i) {
       node = nodes[i], node.index = i;
-	  node.layout =  { x:x(node), y:y(node), a: a(node), r: r(node), count: 1, children: [], parent: {} } 
+      node.layout =  { x:x(node) + (Math.random()-0.5)*1e-6, y:y(node), a: a(node), r: r(node), count: 1, children: [], parent: {} } 
     }
   }
   
